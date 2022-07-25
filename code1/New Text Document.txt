@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+		
+		 Scanner s = new Scanner(System.in);
+		 
+		 int n = s.nextInt();
+        int mine_exp = s.nextInt();
+        
+        
+         int monst[] = new int[n];
+        int bonus[] = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            monst[i] = s.nextInt();
+        }
+        for (int i = 0; i < n; i++) {
+            bonus[i] = s.nextInt();
+        }
+        
+        
+        //Start
+        
+        
+        //first sort 
+        int temp=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(monst[i]>monst[j])
+                {
+                    //swap monster
+                    temp=monst[i];
+                    monst[i]=monst[j];
+                    monst[j]=temp;
+                    //swap bonus
+                    temp=bonus[i];
+                    bonus[i]=bonus[j];
+                    bonus[j]=temp;
+                }
+            }
+        }
+        
+        //now logic
+        
+        //compare and then add 
+        
+        //int[] arr=new int[n*2];
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+           if(monst[i]<=mine_exp)
+           {
+               mine_exp+=bonus[i];
+               count++;
+               
+           }
+        }
+        System.out.println();System.out.println();
+        System.out.println(count);
+        
+	}
+}
